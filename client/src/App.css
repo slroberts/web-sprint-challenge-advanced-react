@@ -279,3 +279,21 @@ pre {
   color: #0e101c;
   background-color: #fff;
 }
+
+.light-mode h1,
+.light-mode form h2 {
+  color: #0e101c;
+}
+
+.light-mode form {
+  background-color: #fff;
+}
+
+.light-mode form label,
+.light-mode form label input {
+  color: #0e101c;
+}
+
+.light-mode form label input {
+  border-color: #0e101c;
+}
