@@ -1,13 +1,21 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import React, {useState} from "react";
+import {BrowserRouter as Router, Route, NavLink} from "react-router-dom";
 
 import PlantList from "./components/PlantList";
 import ShoppingCart from "./components/ShoppingCart";
 import CheckoutForm from "./components/CheckoutForm";
+import {useLightMode} from "./hooks/useLightMode";
 
 import "./App.css";
 
 function App() {
+  //Stretch -- Light Mode
+  const [lightMode, setlightMode] = useLightMode(false);
+  const toggleMode = (e) => {
+    e.preventDefault();
+    setlightMode(!lightMode);
+  };
+
   // array of plants that have been added to the cart
   const [cart, setCart] = useState([]);
 
@@ -41,6 +49,14 @@ function App() {
                   {cart.length > 0 && cart.length}
                 </span>
               </NavLink>
+            </li>
+            <li>
+              <div className="light-mode__toggle">
+                <div
+                  onClick={toggleMode}
+                  className={lightMode ? "toggle toggled" : "toggle"}
+                />
+              </div>
             </li>
           </ul>
         </nav>
